@@ -1,9 +1,9 @@
 docx==0.2.4
-*firebase_admin==5.2.0
+firebase_admin==5.2.0
 Kivy==2.1.0
 kivymd==0.104.2
-*pyrebase==3.0.27
-*Pyrebase4==4.5.0
+pyrebase==3.0.27
+Pyrebase4==4.5.0
 python_docx==0.8.11
-*requests==2.27.1
+requests==2.27.1
 wikipedia==1.4.0
