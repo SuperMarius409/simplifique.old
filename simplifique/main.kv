@@ -1,0 +1,965 @@
+#:kivy 1.10.1
+<Screen1>:
+    MDLabel:
+        text: "Hey, Login Now."
+        pos_hint: {"center_x": .35, "center_y": .75}
+        size_hint_x: .42
+        haling: "left"
+        font_name: "Poppins-Bold"
+        font_size:"28sp"
+
+    MDFloatLayout:
+        size_hint: .8, .09
+        pos_hint: {"center_x": .5, "center_y": .55}
+        canvas:
+            Color:
+                rgb: rgba(245, 245, 245, 255)
+            RoundedRectangle:
+                size: self.size
+                pos: self.pos
+                radius: [8]
+        TextInput:
+            id: l_email
+            hint_text: "Email"
+            size_hint: 1, None
+            pos_hint: {"center_x": .5, "center_y": .5}
+            height: self.minimum_height
+            multiline: False
+            hint_text_color: rgba(168, 168, 168, 255)
+            background_color: 0, 0, 0, 0
+            padding: 18
+            font_name: "Poppins"
+            font_size: "16sp"
+
+    MDFloatLayout:
+        size_hint: .8, .09
+        pos_hint: {"center_x": .5, "center_y": .43}
+        canvas:
+            Color:
+                rgb: rgba(245, 245, 245, 255)
+            RoundedRectangle:
+                size: self.size
+                pos: self.pos
+                radius: [8]
+        TextInput:
+            id: l_password
+            hint_text: "Password"
+            size_hint: 1, None
+            pos_hint: {"center_x": .5, "center_y": .5}
+            height: self.minimum_height
+            multiline: False
+            password: True
+            hint_text_color: rgba(168, 168, 168, 255)
+            background_color: 0, 0, 0, 0
+            padding: 18
+            font_name: "Poppins"
+            font_size: "16sp"
+    MDTextButton:
+        text: "Sign Up!                     "
+        font_name: "Poppins"
+        theme_text_color: "Custom"
+        text_color: rgba(168, 168, 168, 225)
+        font_size: "14sp"
+        pos_hint: {"center_x": .3, "center_y": .33}
+        on_press: root.manager.current = 'screen2'
+    
+    MDFillRoundFlatButton:
+        text:"Login"
+        font_name: "Poppins"
+        size_hint: .8, .09
+        font_size: "20sp"
+        pos_hint: {"center_x": .5, "center_y": .15}
+        background_color: 0, 0, 0, 0
+        md_bg_color: app.theme_cls.primary_dark
+        on_release: root.try_sign_in()
+
+<Screen2>:
+    MDToolbar:
+        pos_hint: {"top": 1}
+        left_action_items: [["arrow-left", lambda x: root.callback()]]
+        specific_text_color: app.theme_cls.primary_dark
+        md_bg_color: 1, 1, 1, 1
+    MDLabel:
+        text: "Sign Up Now."
+        pos_hint: {"center_x": .35, "center_y": .87}
+        size_hint_x: .42
+        haling: "left"
+        font_name: "Poppins-Bold"
+        font_size:"28sp"
+        id: label_register
+    MDFloatLayout:
+        size_hint: .8, .09
+        pos_hint: {"center_x": .5, "center_y": .67}
+        canvas:
+            Color:
+                rgb: rgba(245, 245, 245, 255)
+            RoundedRectangle:
+                size: self.size
+                pos: self.pos
+                radius: [8]
+        TextInput:
+            id: s_email
+            hint_text: "Email"
+            size_hint: 1, None
+            pos_hint: {"center_x": .5, "center_y": .5}
+            height: self.minimum_height
+            multiline: False
+            hint_text_color: rgba(168, 168, 168, 255)
+            background_color: 0, 0, 0, 0
+            padding: 18
+            font_name: "Poppins"
+            font_size: "16sp"
+    MDFloatLayout:
+        size_hint: .8, .09
+        pos_hint: {"center_x": .5, "center_y": .55}
+        canvas:
+            Color:
+                rgb: rgba(245, 245, 245, 255)
+            RoundedRectangle:
+                size: self.size
+                pos: self.pos
+                radius: [8]
+        TextInput:
+            id: s_password
+            hint_text: "Password"
+            size_hint: 1, None
+            pos_hint: {"center_x": .5, "center_y": .5}
+            height: self.minimum_height
+            multiline: False
+            hint_text_color: rgba(168, 168, 168, 255)
+            background_color: 0, 0, 0, 0
+            padding: 18
+            font_name: "Poppins"
+            font_size: "16sp"
+    MDFloatLayout:
+        size_hint: .8, .09
+        pos_hint: {"center_x": .5, "center_y": .43}
+        canvas:
+            Color:
+                rgb: rgba(245, 245, 245, 255)
+            RoundedRectangle:
+                size: self.size
+                pos: self.pos
+                radius: [8]
+        TextInput:
+            id: s_name
+            hint_text: "Name"
+            size_hint: 1, None
+            pos_hint: {"center_x": .5, "center_y": .5}
+            height: self.minimum_height
+            multiline: False
+            hint_text_color: rgba(168, 168, 168, 255)
+            background_color: 0, 0, 0, 0
+            padding: 18
+            font_name: "Poppins"
+            font_size: "16sp"
+    MDTextButton:
+        text: "Forgot Password?"
+        font_name: "Poppins"
+        theme_text_color: "Custom"
+        text_color: rgba(168, 168, 168, 225)
+        font_size: "14sp"
+        pos_hint: {"center_x": .3, "center_y": .33}
+        on_press: app.root.current = "screen3"
+    
+    MDFillRoundFlatButton:
+        text:"Sign Up"
+        font_name: "Poppins"
+        size_hint: .8, .09
+        font_size: "20sp"
+        pos_hint: {"center_x": .5, "center_y": .15}
+        background_color: 0, 0, 0, 0
+        md_bg_color: app.theme_cls.primary_dark
+        on_release: root.validate_info()
+<Screen3>:
+    MDToolbar:
+        pos_hint: {"top": 1}
+        left_action_items: [["arrow-left", lambda x: root.callback()]]
+        specific_text_color: app.theme_cls.primary_dark
+        md_bg_color: 1, 1, 1, 1
+    MDLabel:
+        text: "Recover Password Now."
+        pos_hint: {"center_x": .35, "center_y": .75}
+        size_hint_x: .42
+        haling: "left"
+        font_name: "Poppins-Bold"
+        font_size:"28sp"
+        id: text_redefined
+
+    MDFloatLayout:
+        size_hint: .8, .09
+        pos_hint: {"center_x": .5, "center_y": .55}
+        canvas:
+            Color:
+                rgb: rgba(245, 245, 245, 255)
+            RoundedRectangle:
+                size: self.size
+                pos: self.pos
+                radius: [8]
+        TextInput:
+            id: r_email
+            hint_text: "Email"
+            size_hint: 1, None
+            pos_hint: {"center_x": .5, "center_y": .5}
+            height: self.minimum_height
+            multiline: False
+            hint_text_color: rgba(168, 168, 168, 255)
+            background_color: 0, 0, 0, 0
+            padding: 18
+            font_name: "Poppins"
+            font_size: "16sp"
+    MDFillRoundFlatButton:
+        text:"Recover"
+        font_name: "Poppins"
+        size_hint: .8, .09
+        font_size: "20sp"
+        pos_hint: {"center_x": .5, "center_y": .15}
+        md_bg_color: app.theme_cls.primary_dark
+        on_release: root.send_email_confirm()
+
+    
+    
+    
+    
+    
+    
+
+
+<Screen4>:
+    ScrollView:
+        size: self.size
+        MDBoxLayout:
+            orientation:'vertical'
+            MDBoxLayout:
+                size_hint_y:.3
+                padding:dp(15)
+                MDBoxLayout:
+                    orientation:"vertical"
+                    MDLabel:
+                        id: home_text
+                        text:"Hello, Marius!"
+                        font_style: "H4"
+                    MDBoxLayout:
+                        adaptive_size:True
+                        spacing:dp(10)
+                        MDLabel:
+                            text:"Home"
+                            text_size:None,None
+                            adaptive_width:True
+                        MDIcon:
+                            icon:'chevron-down'
+            MDGridLayout:
+                size_hint_y:.75
+                cols:2
+                padding:[dp(15),dp(15),dp(15),dp(35)]
+                spacing:dp(10)
+
+                ElementCard:
+                    image:"images/sun.png"
+                    text:"Weather"
+                    subtext:"Partly Sunny"
+                    items_count:"3 Events"
+                    on_release: app.root.current = "screen6"
+
+
+                ElementCard:
+                    image:"images/wallet.png"
+                    text:"Financials"
+                    subtext:"Taxes and Duties"
+                    items_count:"2 Items"
+                    on_release: app.root.current = "screen9"
+
+                ElementCard:
+                    image:"images/todo.png"
+                    text:"To Do"
+                    subtext:"Go to the office at 10 AM"
+                    items_count:"1 Event"
+                    on_release: app.root.current = "screen5"
+
+                ElementCard:
+                    image:"images/book.png"
+                    text:"Essay Helper"
+                    items_count:""
+                    subtext:"AI esay writer"
+                    on_release: app.root.current = "screen7"
+
+                ElementCard:
+                    image:"images/newspaper.png"
+                    text:"News"
+                    subtext:"A new record was made..."
+                    items_count:""
+                    on_release: app.root.current = "screen10"
+
+                ElementCard:
+                    image:"images/Food.png"
+                    text:"Meal Plan"
+                    subtext:"Random Meal"
+                    items_count:""
+                    on_release: app.root.current = "screen8"
+
+
+    ScreenManager:
+        Screen:
+            BoxLayout:
+                orientation: 'vertical'
+                MDToolbar:
+                    title: 'Settings'
+                    elevation: 10
+                    left_action_items: [["menu", lambda x: nav_drawer.set_state("open")]] 
+                Widget:
+    MDNavigationDrawer:
+        id: nav_drawer
+        BoxLayout:
+            orientation: 'vertical'
+            spacing: "8dp"
+            padding: "8dp"
+
+            MDLabel:
+                id: drawer_text
+                text: ''
+                font_style: "Subtitle1"
+                size_hint_y: None
+                height: self.texture_size[1]
+            MDLabel:
+                id: drawer_email
+                text: ''
+                font_style: "Caption"
+                size_hint_y: None
+                height: self.texture_size[1]
+
+            OneLineIconListItem:
+                text: "Profile"
+                            
+                IconLeftWidget:
+                    icon: "face-profile"
+
+            OneLineIconListItem:
+                text: "Any Problem"
+                            
+                IconLeftWidget:
+                    icon: "account-question"
+                                    
+            OneLineIconListItem:
+                text: "Logout"
+                on_press: root.callback()
+                            
+                IconLeftWidget:
+                    icon: "logout"
+<ElementCard@MDCard>:
+    md_bg_color:200/255,200/255,200/255,1
+    padding:dp(10)
+    spacing:dp(10)
+    radius:dp(15)
+    ripple_behavior: True
+    image:''
+    text:""
+    items_count:""
+    subtext:''
+
+    orientation:'vertical'
+    Image:
+        source:root.image
+    MDBoxLayout:
+        orientation:'vertical'
+        MDLabel:
+            halign:"center"
+            text:root.text
+            font_style:"H6"      
+        MDLabel:
+            halign:"center"
+            font_style:"Caption"
+            text:root.subtext
+        MDLabel:
+            halign:"center"
+            text:root.items_count
+            theme_text_color: "Custom"
+            #text_color: 69/255,55/255,86/255,1
+
+<Screen5>:
+    MDFloatLayout:
+        MDToolbar:
+            pos_hint: {"top": 1}
+            left_action_items: [["arrow-left", lambda x: root.callback()]]
+            specific_text_color: app.theme_cls.primary_dark
+            md_bg_color: 1, 1, 1, 1
+        MDLabel:
+            id: task_label
+            halign: 'center'
+            markup: True
+            text: "My Tasks"
+            font_name: "Poppins-Bold"
+            font_size: 40
+            pos_hint: {'y': .45}
+
+        ScrollView:
+            pos_hint: {'center_y': .5, 'center_x': .5}
+            size_hint: .9, .8
+
+            MDList:
+                id: container
+
+
+        MDFloatingActionButton:
+            icon: 'plus-thick'
+            on_release: app.show_task_dialog()
+            elevation_normal: 12
+            pos_hint: {'x': .8, 'y':.05}
+
+<DialogContent>:
+    orientation: "vertical"
+    spacing: "10dp"
+    size_hint: 1, None
+    height: "130dp"
+
+    GridLayout:
+        rows: 1
+
+        MDTextField:
+            id: task_text
+            hint_text: "Add Task..."
+            pos_hint: {"center_y": .4}
+            max_text_length: 50
+            on_text_validate: (app.add_task(task_text, date_text.text), app.close_dialog())
+
+        MDIconButton:
+            icon: 'calendar'
+            on_release: root.show_date_picker()
+            padding: '10dp'
+
+    MDLabel:
+        spacing: '10dp'
+        id: date_text
+
+    BoxLayout:
+        orientation: 'horizontal'
+
+        MDRaisedButton:
+            text: "SAVE"
+            on_release: (app.add_task(task_text, date_text.text), app.close_dialog())
+        MDFlatButton:
+            text: 'CANCEL'
+            on_release: app.close_dialog()
+
+<ListItemWithCheckbox>:
+    id: the_list_item
+    markup: True
+
+    LeftCheckbox:
+        id: check
+        on_release: 
+            root.mark(check, the_list_item)
+
+
+
+    IconRightWidget:
+        icon: 'trash-can-outline'
+        theme_text_color: "Custom"
+        text_color: 1, 0, 0, 1
+        on_release:
+            root.delete_item(the_list_item)
+<Screen6>:
+    MDFloatLayout:
+        md_bg_color: 1, 1, 1, 1
+        MDToolbar:
+            pos_hint: {"top": 1}
+            left_action_items: [["arrow-left", lambda x: root.callback()]]
+            specific_text_color: app.theme_cls.primary_dark
+            md_bg_color: 1, 1, 1, 1
+        Image:
+            source: "images/location.png"
+            size_hint: .1, .1
+            pos_hint:  {"center_x": .5, "center_y": .95}
+        MDLabel:
+            id: location
+            halign: 'center'
+            text: ""
+            font_size: "20sp"
+            font_name: "Poppins-Bold"
+            pos_hint: {"center_x": .5, "center_y": .89}
+        Image:
+            id: weather_image
+            source: "images/sun.png"
+            pos_hint:  {"center_x": .5, "center_y": .77}
+        MDLabel:
+            id: temperature
+            halign: 'center'
+            text: ""
+            markup: True
+            font_size: "60sp"
+            pos_hint: {"center_x": .5, "center_y": .62} 
+        MDLabel:
+            id: weather
+            halign: 'center'
+            text: ""
+            font_size: "20sp"
+            font_name: "Poppins"
+            pos_hint: {"center_x": .5, "center_y": .54}
+        MDFloatLayout:
+            pos_hint: {"center_x": .25, "center_y": .4}
+            size_hint: .22, .1
+            Image:
+                source: "images/humidity.png"
+                pos_hint:  {"center_x": .1, "center_y": .5}
+            MDLabel:
+                id: humidity
+                text: ""
+                font_size: "18sp"
+                font_name: "Poppins"
+                pos_hint: {"center_x": 1, "center_y": .7}
+            MDLabel:
+                text: "Humidity"
+                font_size: "14sp"
+                font_name: "Poppins"
+                pos_hint: {"center_x": 1, "center_y": .3} 
+        MDFloatLayout:
+            pos_hint: {"center_x": .7, "center_y": .4}
+            size_hint: .22, .1
+            Image:
+                source: "images/wind.png"
+                pos_hint:  {"center_x": .1, "center_y": .5}
+            MDLabel:
+                id: wind_speed
+                text: ""
+                font_size: "16sp"
+                font_name: "Poppins"
+                pos_hint: {"center_x": 1.1, "center_y": .7}
+            MDLabel:
+                text: "Wind"
+                font_size: "14sp"
+                font_name: "Poppins"
+                pos_hint: {"center_x": 1.1, "center_y": .3}  
+        MDFloatLayout:
+            size_hint_y: .3
+            canvas:
+                Color:
+                    rgb: rgba(33, 148, 240, 255) # BackgroundColor
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [10, 10, 0, 0]   
+
+            MDFloatLayout:  
+                pos_hint: {"center_x": .5, "center_y": .71}  
+                size_hint: .9, .32
+                canvas:
+                    Color:
+                        rgb: rgba(25, 118, 210, 255) # TextInputColor
+                    RoundedRectangle:
+                        size: self.size
+                        pos: self.pos
+                        radius: [6] 
+                TextInput:
+                    id: city_name
+                    hint_text: "Enter City Name"  
+                    size_hint: 1, None
+                    pos_hint: {"center_x": .5, "center_y": .5} 
+                    height: self.minimum_height
+                    multiline: False
+                    font_name: "Poppins-Bold"
+                    font_size: "20sp"
+                    hint_text_color: 1, 1, 1, 1
+                    foreground_color: 1, 1, 1, 1
+                    background_color: 1, 1, 1, 0
+                    padding: 15
+                    cursor_color: 1, 1, 1, 1
+                    cursor_width: "2sp"
+            Button:
+                text: "Get Weather"
+                font_name: "Poppins-Bold"
+                font_size: "20sp"
+                size_hint: .9, .32
+                pos_hint: {"center_x": .5, "center_y": .29}
+                background_color: 1, 1, 1, 0
+                color: rgba(25, 118, 210, 255) # ButtonColor
+                on_release: app.search_weather()
+                canvas.before:
+                    Color:
+                        rgb: 1, 1, 1, 1
+                    RoundedRectangle:
+                        size: self.size
+                        pos: self.pos
+                        radius: [6] 
+<Screen7>:
+    MDToolbar:
+        pos_hint: {"top": 1}
+        left_action_items: [["arrow-left", lambda x: root.callback()]]
+        specific_text_color: app.theme_cls.primary_dark
+        md_bg_color: 1, 1, 1, 1
+    MDLabel:
+        text: "Essay Helper"
+        pos_hint: {"center_x": .35, "center_y": .87}
+        size_hint_x: .42
+        haling: "left"
+        font_name: "Poppins-Bold"
+        font_size:"28sp"
+    MDFloatLayout:
+        size_hint: .8, .09
+        pos_hint: {"center_x": .5, "center_y": .67}
+        canvas:
+            Color:
+                rgb: rgba(245, 245, 245, 255)
+            RoundedRectangle:
+                size: self.size
+                pos: self.pos
+                radius: [8]
+        TextInput:
+            id: wiki_name
+            hint_text: "Your Name"
+            size_hint: 1, None
+            pos_hint: {"center_x": .5, "center_y": .5}
+            height: self.minimum_height
+            multiline: False
+            hint_text_color: rgba(168, 168, 168, 255)
+            background_color: 0, 0, 0, 0
+            padding: 18
+            font_name: "Poppins"
+            font_size: "16sp"
+    MDFloatLayout:
+        size_hint: .8, .09
+        pos_hint: {"center_x": .5, "center_y": .55}
+        canvas:
+            Color:
+                rgb: rgba(245, 245, 245, 255)
+            RoundedRectangle:
+                size: self.size
+                pos: self.pos
+                radius: [8]
+        TextInput:
+            id: wiki_language
+            hint_text: "Language"
+            size_hint: 1, None
+            pos_hint: {"center_x": .5, "center_y": .5}
+            height: self.minimum_height
+            multiline: False
+            hint_text_color: rgba(168, 168, 168, 255)
+            background_color: 0, 0, 0, 0
+            padding: 18
+            font_name: "Poppins"
+            font_size: "16sp"
+    MDFloatLayout:
+        size_hint: .8, .09
+        pos_hint: {"center_x": .5, "center_y": .43}
+        canvas:
+            Color:
+                rgb: rgba(245, 245, 245, 255)
+            RoundedRectangle:
+                size: self.size
+                pos: self.pos
+                radius: [8]
+        TextInput:
+            id: wiki_title
+            hint_text: "Essay Title"
+            size_hint: 1, None
+            pos_hint: {"center_x": .5, "center_y": .5}
+            height: self.minimum_height
+            multiline: False
+            hint_text_color: rgba(168, 168, 168, 255)
+            background_color: 0, 0, 0, 0
+            padding: 18
+            font_name: "Poppins"
+            font_size: "16sp"
+    
+    MDFillRoundFlatButton:
+        text:"Start"
+        font_name: "Poppins"
+        size_hint: .8, .09
+        font_size: "20sp"
+        pos_hint: {"center_x": .5, "center_y": .15}
+        background_color: 0, 0, 0, 0
+        md_bg_color: app.theme_cls.primary_dark
+        on_release: root.essay_helper()
+<Screen8>:
+    name: "screen8"
+    MDToolbar:
+        pos_hint: {"top": 1}
+        left_action_items: [["arrow-left", lambda x: root.callback()]]
+        specific_text_color: app.theme_cls.primary_dark
+        md_bg_color: 1, 1, 1, 1
+    MDTextButton:
+        text: "Meal Planner"
+        pos_hint: {"center_x": .55, "center_y": .95}
+        halign: "center"
+        font_name: "Poppins-Bold"
+        font_size: "24sp"
+        on_release: root.meal_text()
+    AsyncImage:
+        id: meal_image
+        source: root.image_source
+        size_hint_y: .415  
+        pos_hint: {"center_x": .515, "center_y": .7} 
+    ScrollView:
+        do_scroll: [False, True]
+        size_hint: (0.90, 0.45)
+        pos_hint: {"center_x": 0.5, "center_y": .25}
+        scroll_type:['bars', 'content']
+        bar_width: 5
+        GridLayout:
+            cols: 1
+            size_hint_y: None
+            height: self.minimum_height
+            spacing: dp(10)
+            
+            MDLabel:
+                id: meal_text
+                text_size: self.width, None
+                text: '' 
+                size_hint_y: None
+                halign: 'left'
+                height: self.texture_size[1]
+                font_name: "Poppins"         
+<Screen9>:
+    MDFloatLayout: 
+        md_bg_color: rgba(33, 148, 240, 255)
+        MDToolbar:
+            pos_hint: {"top": 1}
+            left_action_items: [["arrow-left", lambda x: root.callback()]]
+            specific_text_color: 1, 1, 1, 1
+            md_bg_color: rgba(33, 148, 240, 255)
+        MDLabel:
+            text: "Current Balance"
+            halign: "center"
+            theme_text_color: "Custom"
+            text_color: 1, 1, 1, 1
+            font_size: "16sp"
+            font_name: "Poppins-Bold"
+            pos_hint: {"center_x": .5, "center_y": .90}
+        MDLabel:
+            text: "$12,450.02"
+            halign: "center"
+            theme_text_color: "Custom"
+            text_color: 1, 1, 1, 1
+            font_size: "45sp"
+            font_name: "Poppins-Bold"
+            pos_hint: {"center_x": .5, "center_y": .83}
+        
+        MDIconButton:
+            icon: 'images/arrow-up.png'
+            pos_hint: {"center_x": .4, "center_y": .7}
+            on_release: app.add_new(False)
+        MDIconButton:
+            icon: 'images/arrow-down.png'
+            pos_hint: {"center_x": .6, "center_y": .7}
+            on_release: app.add_new(True)
+        MDFloatLayout:
+            size_hint_y: .6
+            canvas:
+                Color:
+                    rgb: rgba(255, 255, 255, 255) # BackgroundColor
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [dp(42), dp(42), 0, 0]   
+            MDLabel:
+                text: 'Transactions'
+                font_name: 'Poppins-Bold'
+                font_size: '20sp'
+                halign: 'center'
+                size_hint_y: 1.85
+                height: dp(28)
+            BoxLayout:
+                ScrollView:
+                    do_scroll: [False, True]
+                    size_hint_y: None
+                    height: self.parent.height*.85
+                    GridLayout:
+                        id: gl_transactions
+                        cols: 1
+                        size_hint_y: None
+                        height: self.minimum_height
+                        spacing: dp(24)
+<ListTile>:
+    spacing: dp(1)
+    size_hint_y: None
+    height: dp(48)
+    MDFloatLayout:
+        size_hint_x: 0.1
+        canvas:
+            Color:
+                rgb: rgba(255, 255, 255, 255) # BackgroundColor
+            RoundedRectangle:
+                size: self.size
+                pos: self.pos
+                radius: [self.height*.4]   
+        width: self.height
+        padding: dp(4)
+    MDIconButton:
+        source: root.icon
+    BoxLayout:
+        orientation: 'vertical'  
+        MDLabel:
+            text: root.title
+            font_name: 'Poppins-Bold'
+            font_size: '16sp'
+        MDLabel:
+            text: root.subtitle
+            font_name: 'Poppins'
+            font_size: '12sp'
+    BoxLayout:
+        size_hint_x: .3
+        orientation: 'vertical' 
+        MDLabel:
+            id: amount
+            font_name: 'Poppins-Bold'
+            font_size: '14sp'
+            theme_text_color: "Custom"
+            text_color: rgba(166, 85, 105, 255) if root.expense else rgba(165, 248, 230, 255)
+        MDLabel:
+            id: extra
+            font_name: 'Poppins'
+            font_size: '16sp'
+            theme_text_color: "Custom"
+            text_color: rgba(190, 189, 191, 255)
+<AddNew>:
+    background: ''
+    background_color: [0,0,0, .2]
+    AnchorLayout:
+        anchor_y: 'bottom'
+        MDFloatLayout:
+            size_hint_y: .7
+            canvas:
+                Color:
+                    rgb: rgba(255, 255, 255, 255) # BackgroundColor
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [dp(42), dp(42), 0, 0]  
+            BoxLayout:
+                spacing: dp(8)
+                size_hint_y: None
+                height: dp(32)
+                MDTextButton:
+                    text: "cancel"
+                    halign: "center"
+                    custom_color: 0, 1, 0, 1
+                    size_hint_x: .3
+                    on_press: root.dismiss()
+                    pos_hint: {"center_y": 13}
+                MDLabel:
+                    text: "Add Expense" if root.expense else "Add Income"
+                    halign: "center"
+                    theme_text_color: "Custom"
+                    text_color: rgba(36, 133, 211, 255)
+                    font_size: "16sp"
+                    font_name: "Poppins-Bold"
+                    size_hint_x: .4
+                    pos_hint: {"center_y": 13}
+                MDTextButton:
+                    text: "confirm"
+                    halign: "center"
+                    custom_color: 0, 1, 0, 1
+                    size_hint_x: .3
+                    on_press: root.confirm()
+                    pos_hint: {"center_y": 13}
+            BoxLayout:
+                orientation: 'vertical'
+                spacing: dp(14)
+                TextInput:
+                    id: t_title
+                    hint_text: "Title"
+                    size_hint: 1, None
+                    pos_hint: {"center_x": .5, "center_y": .5}
+                    height: self.minimum_height
+                    multiline: False
+                    hint_text_color: rgba(168, 168, 168, 255)
+                    background_color: 0, 0, 0, 0
+                    padding: 18
+                    font_name: "Poppins"
+                    font_size: "16sp"
+                TextInput:
+                    id: t_date
+                    hint_text: "Execution Date"
+                    size_hint: 1, None
+                    pos_hint: {"center_x": .5, "center_y": .5}
+                    height: self.minimum_height
+                    multiline: False
+                    hint_text_color: rgba(168, 168, 168, 255)
+                    background_color: 0, 0, 0, 0
+                    padding: 18
+                    font_name: "Poppins"
+                    font_size: "16sp"
+                TextInput:
+                    id: t_amount
+                    hint_text: "Amount"
+                    size_hint: 1, None
+                    pos_hint: {"center_x": .5, "center_y": .5}
+                    height: self.minimum_height
+                    multiline: False
+                    hint_text_color: rgba(168, 168, 168, 255)
+                    background_color: 0, 0, 0, 0
+                    padding: 18
+                    font_name: "Poppins"
+                    font_size: "16sp"
+<TileAction>:
+    background: ''
+    background_color: [0,0,0, .2]
+    AnchorLayout:
+        anchor_y: 'bottom'
+        MDFloatLayout:
+            size_hint_y: .2
+            canvas:
+                Color:
+                    rgb: rgba(255, 255, 255, 255) # BackgroundColor
+                RoundedRectangle:
+                    size: self.size
+                    pos: self.pos
+                    radius: [dp(10), dp(10), 0, 0]   
+            GridLayout:
+                cols: 1
+                MDFlatButton:
+                    text: 'Edit'
+                    theme_text_color: "Custom"
+                    text_color: rgba(36, 133, 211, 255)
+                    font_name: 'Poppins'
+                    font_size: '24sp'
+                    halign: 'center'
+                    size_hint_y: 0.15
+                    size_hint_x: 1
+                    height: dp(42)
+                MDFlatButton:
+                    text: 'Delete'
+                    theme_text_color: "Custom"
+                    text_color: rgba(166, 85, 105, 255) 
+                    font_name: 'Poppins'
+                    font_size: '24sp'
+                    halign: 'center'
+                    size_hint_y: 0.15
+                    size_hint_x: 1
+                    height: dp(42)
+<Screen10>:
+    MDToolbar:
+        pos_hint: {"top": 1}
+        left_action_items: [["arrow-left", lambda x: root.callback()]]
+        specific_text_color: app.theme_cls.primary_dark
+        md_bg_color: 1, 1, 1, 1
+    MDLabel:
+        text: "Today News"
+        pos_hint: {"center_x": .5, "center_y": .95}
+        size_hint_x: .5
+        haling: "right"
+        font_name: "Poppins-Bold"
+        font_size:"28sp"
+    ScrollView:
+        do_scroll: [False, True]
+        size_hint: (0.95, 0.7)
+        pos_hint: {"center_x": 0.5, "center_y": .55}
+        scroll_type:['bars', 'content']
+        bar_width: 5
+        MDLabel:
+            id: news_text
+            text_size: self.width, None
+            text: '' 
+            size_hint_y: None
+            halign: 'left'
+            height: self.texture_size[1]
+            font_name: "Poppins"
+    MDFillRoundFlatButton:
+        text:"Reload"
+        font_name: "Poppins"
+        size_hint: .8, .09
+        font_size: "20sp"
+        pos_hint: {"center_x": .5, "center_y": .1}
+        background_color: 0, 0, 0, 0
+        md_bg_color: app.theme_cls.primary_dark
+        on_release: root.get_news()
+
+
