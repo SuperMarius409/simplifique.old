@@ -16,7 +16,7 @@ build-android:
       uses: ArtemSBulgakov/buildozer-action@v1
       id: buildozer
       with:
-        workdir: <He_radulescu_Marius/simplifique>
+        workdir: <He_Radulescu_Marius/simplifique>
         buildozer_version: stable
 
     - name: Upload artifacts
