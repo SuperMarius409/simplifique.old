@@ -1,5 +1,4 @@
-pycryptodome==3.16.0
-python-docx==0.8.11
+python-docx
 firebase_admin==5.2.0
 Kivy==2.1.0
 kivymd==0.104.2
@@ -8,4 +7,4 @@ Pyrebase4==4.5.0
 python_docx==0.8.11
 requests==2.27.1
 wikipedia==1.4.0
-
+"pip install pycryptodome"
